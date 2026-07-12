@@ -51,3 +51,14 @@ jobs:
             echo "::error::Unexpected data file(s) committed:"; echo "$bad"; exit 1
           fi
           echo "No leaked datasets."
+
+      - name: Check submission/paper_url.txt format
+        run: |
+          f=submission/paper_url.txt
+          if [ ! -f "$f" ]; then echo "::warning::$f missing - add your deployed paper URL there for the capstone."; exit 0; fi
+          line=$(head -1 "$f" | tr -d '[:space:]')
+          if [ "$line" = "PASTE-YOUR-DEPLOYED-PAPER-URL-HERE" ]; then echo "paper_url.txt still placeholder - fine until your capstone ships."; exit 0; fi
+          case "$line" in
+            https://*) echo "paper_url.txt looks good: $line";;
+            *) echo "::warning::$f should contain exactly one https:// URL on the first line.";;
+          esac
