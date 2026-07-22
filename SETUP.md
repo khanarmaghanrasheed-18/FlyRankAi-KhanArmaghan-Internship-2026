@@ -40,7 +40,9 @@ breaks it — read the ⚠️ lines even if you skip everything else.
 6. **Also**: *File → Save a copy in Drive* — a personal backup so a closed tab never eats an
    hour of work. Never submitted, just yours.
 
-**✅ Done when:** the executed notebook shows up in your copy on github.com. That
+**✅ Done when:** the executed notebook shows up in your copy on github.com **and, when you
+open the file there, the cell outputs are visible under the cells.** No outputs means Colab
+saved an unrun copy — back in Colab: **Runtime → Run all**, then save again. That
 **`github.com/you/your-repo`** URL is your submission for Assignment 1 — never a
 `colab.research.google.com` or `drive.google.com` link.
 
@@ -49,6 +51,11 @@ rewiring existed, or Actions is turned off on your repo.) Use Colab's built-in o
 result, two more clicks: **File → Open notebook → GitHub tab** → paste
 `github.com/you/your-repo` → pick the notebook. Save is pre-filled exactly the same way, and
 Colab's **Recent** tab remembers it from then on.
+
+**Seeing an OLD version of your notebook?** Don't panic — your work is safe. Colab sometimes
+shows a cached copy; the badges carry a cache-buster to prevent this, but if it ever happens
+anyway: check your repo on github.com first (your saved version is there), then reopen via
+the badge or **File → Open notebook → GitHub tab**.
 
 ---
 

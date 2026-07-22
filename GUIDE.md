@@ -127,7 +127,7 @@ Using a chat-only assistant in the browser? Open the skill file on GitHub and pa
 into your chat first. Repo-reading agents find the router automatically through `AGENTS.md` and
 `CLAUDE.md` at the repo root.
 
-## 7. FAQ — the five questions everyone asks
+## 7. FAQ — the questions everyone asks
 
 **Git won't add my results / my CSV.**
 By design — see section 3. Generated artifacts regenerate; datasets never enter git. Your
@@ -153,3 +153,17 @@ copy. Check `docs/data-dictionary.md` first so you don't leak the label.
 **Can I put the mentor-provided warehouse release in this repo?**
 No. It stays outside git entirely (CI fails any committed CSV anyway). Work with it locally
 and commit only code, aggregates, and write-ups — see `DATA_USE.md`.
+
+**How do I get starter fixes that ship after I made my copy?**
+Template copies share no history with the shared repo, so fixes don't arrive on their own.
+Pull them in when you want them:
+
+```bash
+git remote add upstream https://github.com/flyrank-bih/flyrank-ml-internship-starter
+git fetch upstream
+git merge upstream/main --allow-unrelated-histories
+```
+
+Badge lines will conflict (they were rewritten to point at YOUR copy) — resolve those by
+keeping yours. Everything that matters for correctness is also announced on your portal
+board, so syncing is optional, not required.
